@@ -17,6 +17,7 @@
 
 - (id) init
 {
+    self = [super init];
     core = [[NSMutableDictionary alloc] init];
     return self;
 }

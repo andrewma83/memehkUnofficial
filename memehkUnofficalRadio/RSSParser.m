@@ -15,6 +15,7 @@
 
 - (id) init:(NSData *) data
 {
+    self = [super init];
     xpath_array = [[NSMutableArray alloc] init];
     xmlparser = [[NSXMLParser alloc] initWithData:data];
     [xmlparser setDelegate:self];
