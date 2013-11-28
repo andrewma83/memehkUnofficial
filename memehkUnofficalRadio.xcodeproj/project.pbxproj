@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A131F27184724B10024100D /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F24184724B10024100D /* AudioStreamer.m */; };
-		4A131F28184724B10024100D /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F26184724B10024100D /* UIDevice+Hardware.m */; };
+		4A131F2E184738250024100D /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F2B184738250024100D /* AudioStreamer.m */; };
+		4A131F2F184738250024100D /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F2D184738250024100D /* UIDevice+Hardware.m */; };
 		4A3527A31846F90C00349A23 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3527A21846F90C00349A23 /* iAd.framework */; };
 		4A97A0591846925E00CF5C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97A0581846925E00CF5C70 /* Foundation.framework */; };
 		4A97A05B1846925E00CF5C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97A05A1846925E00CF5C70 /* CoreGraphics.framework */; };
@@ -42,10 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A131F23184724B10024100D /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = "../../../Google Drive/code lab/AudioStream/AudioStreamer.h"; sourceTree = "<group>"; };
-		4A131F24184724B10024100D /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = "../../../Google Drive/code lab/AudioStream/AudioStreamer.m"; sourceTree = "<group>"; };
-		4A131F25184724B10024100D /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Hardware.h"; path = "../../../Google Drive/code lab/AudioStream/UIDevice+Hardware.h"; sourceTree = "<group>"; };
-		4A131F26184724B10024100D /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Hardware.m"; path = "../../../Google Drive/code lab/AudioStream/UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		4A131F2A184738250024100D /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		4A131F2B184738250024100D /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		4A131F2C184738250024100D /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
+		4A131F2D184738250024100D /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		4A3527A21846F90C00349A23 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		4A97A0551846925E00CF5C70 /* memehkUnofficalRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memehkUnofficalRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A97A0581846925E00CF5C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,10 +120,10 @@
 		4A131F22184724640024100D /* AudioStream */ = {
 			isa = PBXGroup;
 			children = (
-				4A131F23184724B10024100D /* AudioStreamer.h */,
-				4A131F24184724B10024100D /* AudioStreamer.m */,
-				4A131F25184724B10024100D /* UIDevice+Hardware.h */,
-				4A131F26184724B10024100D /* UIDevice+Hardware.m */,
+				4A131F2A184738250024100D /* AudioStreamer.h */,
+				4A131F2B184738250024100D /* AudioStreamer.m */,
+				4A131F2C184738250024100D /* UIDevice+Hardware.h */,
+				4A131F2D184738250024100D /* UIDevice+Hardware.m */,
 			);
 			name = AudioStream;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A131F28184724B10024100D /* UIDevice+Hardware.m in Sources */,
+				4A131F2F184738250024100D /* UIDevice+Hardware.m in Sources */,
 				4A97A0AB1846A9DB00CF5C70 /* RSSParser.m in Sources */,
 				4A97A0691846925E00CF5C70 /* AppDelegate.m in Sources */,
 				4A97A0AE1846AE9200CF5C70 /* XpathInfo.m in Sources */,
@@ -320,7 +320,7 @@
 				4A97A0B11846D84300CF5C70 /* XmlElement.m in Sources */,
 				4A97A0651846925E00CF5C70 /* main.m in Sources */,
 				4A97A0721846925E00CF5C70 /* EpisodeViewController.m in Sources */,
-				4A131F27184724B10024100D /* AudioStreamer.m in Sources */,
+				4A131F2E184738250024100D /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
