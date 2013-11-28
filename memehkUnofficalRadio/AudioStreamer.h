@@ -204,6 +204,8 @@ void ASReadStreamCallBack(CFReadStreamRef, CFStreamEventType, void*);
 - (BOOL)isIdle;
 - (void)seekToTime:(double)newSeekTime;
 - (double)calculatedBitRate;
+- (void) updateURL:(NSURL *)aURL;
+- (id) init;
 
 // level metering
 - (float)peakPowerForChannel:(NSUInteger)channelNumber;

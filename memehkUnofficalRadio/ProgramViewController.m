@@ -41,6 +41,7 @@
             [self insertNewObject:channelInfoDict];
         }
         
+        _streamer = [[AudioStreamer alloc] init];
     } @catch (NSException *e) {
         NSLog(@"Catch exception: %@", e);
     }
@@ -126,6 +127,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         channelInfo = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:channelInfo];
+        [[segue destinationViewController] setStreamer:_streamer];
     }
 }
 

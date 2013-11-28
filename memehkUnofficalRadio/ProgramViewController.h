@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AudioStreamer.h"
 
 @interface ProgramViewController : UITableViewController
-
+{
+    AudioStreamer *_streamer;
+}
 @end

@@ -21,6 +21,7 @@ typedef enum {PROG_TITLE=0, PROG_URL, NO_PROG_TYPE} PROG_T;
     NSMutableArray *cur_play_episode;
 }
 
+- (void) setStreamer:(AudioStreamer *) streamer;
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;
 @end

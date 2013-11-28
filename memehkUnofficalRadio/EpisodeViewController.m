@@ -38,6 +38,11 @@
     }
 }
 
+- (void)setStreamer:(AudioStreamer *)streamer
+{
+    _streamer = streamer;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -152,12 +157,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     @try {
         channelInfo = episode_list[indexPath.row];
 
-        if (_streamer == nil && cur_play_episode == nil) {
+        if (cur_play_episode == nil) {
             cur_play_episode = channelInfo;
             urlstr = channelInfo[PROG_URL];
             url = [[NSURL alloc] initWithString:urlstr];
-            _streamer = [[AudioStreamer alloc] initWithURL:url];
-            
+            if ([_streamer isPlaying]) {
+                [_streamer stop];
+            }
+            [_streamer updateURL:url];
             [_streamer start];
         } else {
             if ([channelInfo[PROG_TITLE] isEqualToString:cur_play_episode[PROG_TITLE]]) {
@@ -167,7 +174,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                     [_streamer start];
                 } else {
                     [_streamer stop];
-                    _streamer = nil;
                 }
             } else {
                 cur_play_episode = channelInfo;
@@ -175,10 +181,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 url = [[NSURL alloc] initWithString:urlstr];
                 if (_streamer != nil) {
                     [_streamer stop];
-                    _streamer = nil;
                 }
-                _streamer = [[AudioStreamer alloc] initWithURL:url];
-                
+                [_streamer updateURL:url];
                 [_streamer start];
             }
         }

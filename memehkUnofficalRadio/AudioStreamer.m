@@ -237,6 +237,13 @@ void ASReadStreamCallBack
 //
 // Init method for the object.
 //
+
+- (id)init
+{
+    self = [super init];
+    return self;
+}
+
 - (id)initWithURL:(NSURL *)aURL
 {
     self = [super init];
@@ -252,6 +259,11 @@ void ASReadStreamCallBack
 #endif
     }
     return self;
+}
+
+- (void)updateURL:(NSURL *)aURL
+{
+    url = aURL;
 }
 
 //
