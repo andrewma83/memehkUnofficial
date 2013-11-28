@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>channel</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>宏觀經濟</string>
+			<key>ID</key>
+			<integer>424</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>橋到用時方恨少</string>
+			<key>ID</key>
+			<integer>420</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>博輔林</string>
+			<key>ID</key>
+			<integer>418</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>浩浩熵熵</string>
+			<key>ID</key>
+			<integer>417</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>三粒花生酥</string>
+			<key>ID</key>
+			<integer>416</integer>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>415</integer>
+			<key>Name</key>
+			<string>五個一夜情</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>大把戲</string>
+			<key>ID</key>
+			<integer>411</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>蕭遙遊</string>
+			<key>ID</key>
+			<integer>409</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
