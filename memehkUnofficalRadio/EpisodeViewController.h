@@ -33,4 +33,6 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
 - (void) setStreamer:(AudioStreamer *) streamer;
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;
+@property (weak, nonatomic) IBOutlet UIButton *controlButton;
+- (IBAction) playControl:(id)sender;
 @end

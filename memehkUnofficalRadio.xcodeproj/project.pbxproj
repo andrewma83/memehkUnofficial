@@ -105,9 +105,9 @@
 		4A131F21184722DE0024100D /* User interface */ = {
 			isa = PBXGroup;
 			children = (
+				4A97A06A1846925E00CF5C70 /* Main.storyboard */,
 				4A97A0671846925E00CF5C70 /* AppDelegate.h */,
 				4A97A0681846925E00CF5C70 /* AppDelegate.m */,
-				4A97A06A1846925E00CF5C70 /* Main.storyboard */,
 				4A97A06D1846925E00CF5C70 /* ProgramViewController.h */,
 				4A97A06E1846925E00CF5C70 /* ProgramViewController.m */,
 				4A97A0701846925E00CF5C70 /* EpisodeViewController.h */,
@@ -261,6 +261,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Andrew Ma";
 				TargetAttributes = {
+					4A97A0541846925E00CF5C70 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					4A97A0781846925F00CF5C70 = {
 						TestTargetID = 4A97A0541846925E00CF5C70;
 					};

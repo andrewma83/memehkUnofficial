@@ -15,6 +15,7 @@
 
 @implementation EpisodeViewController
 @synthesize MyTableView = _MyTableView;
+@synthesize controlButton = _controlButton;
 
 #pragma mark - Managing the detail item
 
@@ -32,10 +33,33 @@
             [self pollURL];
             title = [channelInfo objectForKey:@"Name"];
             [self setTitle:[channelInfo objectForKey:@"Name"]];
+
+            [self setButtonState];
         } @catch (NSException *e) {
             NSLog(@"Caught an exception %@", e);
         }
     }
+}
+
+- (void) setButtonState
+{
+    if ([_streamer isPaused]) {
+        [_controlButton setTitle:@"Play" forState:UIControlStateNormal];
+    } else {
+        [_controlButton setTitle:@"Pause" forState:UIControlStateNormal];
+    }
+
+}
+
+- (IBAction)playControl:(id)sender
+{
+    if ([_streamer isPaused]) {
+        [_streamer start];
+    } else {
+        [_streamer pause];
+    }
+    
+    [self setButtonState];
 }
 
 - (void)setStreamer:(AudioStreamer *)streamer
@@ -46,8 +70,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    //[self configureView];
+    @try {
+        // Do any additional setup after loading the view, typically from a nib.
+        if ([_streamer isPlaying]) {
+            [self setButtonState];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"catch exception %@", exception);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,8 +108,9 @@
     
     @try {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Ep_Cell" forIndexPath:indexPath];
-        myFont = [ UIFont fontWithName: @"Arial" size: 10.0 ];
+        myFont = [ UIFont fontWithName: @"Arial" size: 12.0 ];
         cell.textLabel.font  = myFont;
+        
         channelInfo = episode_list[indexPath.row];
         cell.textLabel.text = channelInfo[PROG_TITLE];
     } @catch (NSException *e) {
@@ -193,6 +225,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 [_streamer start];
             }
         }
+        
+        [self setButtonState];
     } @catch (NSException *exception) {
         NSLog(@"%@", exception);
     }
