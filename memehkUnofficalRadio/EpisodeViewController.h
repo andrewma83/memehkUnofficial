@@ -7,10 +7,19 @@
 //
 
 #define HKREPORTER_URL_STR  @"http://www.hkreporter.com/myradio/channel_podcast.php?channelid=%d"
+#define MEMEHK_URL_STR    @"http://zerotester.dontexist.org/rss/memehk.php?prog_id=%d"
+
+#if 0
 #define XPATH_FOR_ENCLOSURE_URL @"//rss/channel/item/enclosure"
 #define XPATH_FOR_TITLE @"//rss/channel/item/title"
+#endif
 
-typedef enum {PROG_TITLE=0, PROG_URL, NO_PROG_TYPE} PROG_T;
+#define XPATH_FOR_TITLE     @"//program/title"
+#define XPATH_FOR_URL       @"//program/url"
+#define XPATH_FOR_EPISODE   @"//program/episode"
+#define XPATH_FOR_PART      @"//program/part"
+
+typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PROG_T;
 #import <UIKit/UIKit.h>
 #import "AudioStreamer.h"
 

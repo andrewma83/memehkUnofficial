@@ -104,7 +104,7 @@
     @try {
         channel_info = (NSDictionary *) _detailItem;
         channel_id = [[channel_info objectForKey:@"ID"] intValue];
-        url_str = [[NSString alloc] initWithFormat:HKREPORTER_URL_STR, channel_id];
+        url_str = [[NSString alloc] initWithFormat:MEMEHK_URL_STR, channel_id];
         url = [[NSURL alloc] initWithString:url_str];
         request = [[NSURLRequest alloc] initWithURL:url];
         [NSURLConnection sendAsynchronousRequest:request
@@ -112,24 +112,31 @@
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                    int i;
                                    NSArray *ep_info;
-                                   NSString *enc_url;
-                                   NSString *enc_title;
                                    RSSParser *parser = [[RSSParser alloc] init:data];
                                    XpathInfo *path_dict = [parser parse];
-                                   
-                                   NSMutableArray *enclosure_array = [path_dict getXpath:XPATH_FOR_ENCLOSURE_URL];
-                                   XmlElement *element = enclosure_array[0];
-
+                                   NSString *tempStr;
+                                   XmlElement *titleElement;
+                                   XmlElement *urlElement;
+                                   XmlElement *episodeElement;
+                                   XmlElement *partElement;
                                    NSMutableArray *titleArray = [path_dict getXpath:XPATH_FOR_TITLE];
-                                   element = titleArray[0];
+                                   NSMutableArray *urlArray = [path_dict getXpath:XPATH_FOR_URL];
+                                   NSMutableArray *episodeArray = [path_dict getXpath:XPATH_FOR_EPISODE];
+                                   NSMutableArray *partArray = [path_dict getXpath:XPATH_FOR_PART];
                                    
                                    episode_list = [[NSMutableArray alloc] init];
                                    for (i = 0; i < [titleArray count]; i++) {
-                                       element = enclosure_array[i];
-                                       enc_url = [element.attributeDict objectForKey:@"url"];
-                                       element = titleArray[i];
-                                       enc_title = element.value;
-                                       ep_info = [[NSArray alloc] initWithObjects:enc_title, enc_url, nil];
+                                       titleElement = titleArray[i];
+                                       urlElement =urlArray[i];
+                                       episodeElement = episodeArray[i];
+                                       partElement = partArray[i];
+                                       
+                                       tempStr = titleElement.value;
+                                       ep_info = [[NSArray alloc] initWithObjects:titleElement.value,
+                                                  urlElement.value,
+                                                  episodeElement.value,
+                                                  partElement.value,
+                                                  nil];
                                        [episode_list addObject:ep_info];
                                    }
                                    
