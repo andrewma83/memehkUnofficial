@@ -67,6 +67,20 @@
     _streamer = streamer;
 }
 
+- (void) myAddObserver
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveStreamerNotification:)
+                                                 name:ASStatusChangedNotification
+                                               object:nil];
+    
+}
+
+- (void) myRemoveObserver
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,6 +89,9 @@
         if ([_streamer isPlaying]) {
             [self setButtonState];
         }
+        
+        [self myAddObserver];
+        curPlayIndex = -1;
     }
     @catch (NSException *exception) {
         NSLog(@"catch exception %@", exception);
@@ -113,6 +130,12 @@
         
         channelInfo = episode_list[indexPath.row];
         cell.textLabel.text = channelInfo[PROG_TITLE];
+        
+        if (curPlayIndex == indexPath.row) {
+            cell.textLabel.textColor = [UIColor redColor];
+        } else {
+            cell.textLabel.textColor = [UIColor blackColor];
+        }
     } @catch (NSException *e) {
         NSLog(@"%@", e);
     }
@@ -201,35 +224,77 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             urlstr = channelInfo[PROG_URL];
             url = [[NSURL alloc] initWithString:urlstr];
             if ([_streamer isPlaying]) {
+                [self myRemoveObserver];
                 [_streamer stop];
+                [self myAddObserver];
             }
             [_streamer updateURL:url];
             [_streamer start];
+            curPlayIndex = indexPath.row;
         } else {
             if ([channelInfo[PROG_TITLE] isEqualToString:cur_play_episode[PROG_TITLE]]) {
                 if ([_streamer isPlaying]) {
                     [_streamer pause];
                 } else if ([_streamer isPaused]) {
                     [_streamer start];
+                    curPlayIndex = indexPath.row;
                 } else {
+                    [self myRemoveObserver];
                     [_streamer stop];
+                    [self myAddObserver];
                 }
             } else {
                 cur_play_episode = channelInfo;
                 urlstr = channelInfo[PROG_URL];
                 url = [[NSURL alloc] initWithString:urlstr];
                 if (_streamer != nil) {
+                    [self myRemoveObserver];
                     [_streamer stop];
+                    [self myAddObserver];
                 }
                 [_streamer updateURL:url];
                 [_streamer start];
+                curPlayIndex = indexPath.row;
             }
         }
         
+        [tableView reloadData];
         [self setButtonState];
     } @catch (NSException *exception) {
         NSLog(@"%@", exception);
     }
+}
+
+
+- (void) play_audio
+{
+    [_streamer start];
+}
+
+- (void) receiveStreamerNotification : (NSNotification *) notification
+{
+    NSURL *url;
+    NSString *urlstr;
+    NSMutableArray *channelInfo;
+    
+    if ([_streamer isFinishing]) {
+        curPlayIndex++;
+        if (curPlayIndex < [episode_list count]) {
+            [self myRemoveObserver];
+            [_streamer stop];
+            [self myAddObserver];
+            channelInfo = episode_list[curPlayIndex];
+            urlstr = channelInfo[PROG_URL];
+            url = [[NSURL alloc] initWithString:urlstr];
+            [_streamer updateURL:url];
+            [NSTimer scheduledTimerWithTimeInterval:1.0
+                                             target:self
+                                           selector:@selector(play_audio)
+                                           userInfo:nil
+                                            repeats:NO];
+        }
+    }
+    [_MyTableView reloadData];
 }
 
 @end

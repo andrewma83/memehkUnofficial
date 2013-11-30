@@ -200,12 +200,15 @@ void ASReadStreamCallBack(CFReadStreamRef, CFStreamEventType, void*);
 - (void)pause;
 - (BOOL)isPlaying;
 - (BOOL)isPaused;
+- (BOOL)isFinishing;
 - (BOOL)isWaiting;
 - (BOOL)isIdle;
 - (void)seekToTime:(double)newSeekTime;
 - (double)calculatedBitRate;
 - (void) updateURL:(NSURL *)aURL;
 - (id) init;
+- (double) progress;
+- (double) duration;
 
 // level metering
 - (float)peakPowerForChannel:(NSUInteger)channelNumber;
