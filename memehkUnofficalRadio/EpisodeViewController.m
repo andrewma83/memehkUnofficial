@@ -51,6 +51,13 @@
 
 }
 
+- (void) viewDidDisappear:(BOOL)animated
+{
+    [self myRemoveObserver];
+    [_streamer stop];
+    [super viewDidDisappear:animated];
+}
+
 - (IBAction)playControl:(id)sender
 {
     if ([_streamer isPaused]) {
