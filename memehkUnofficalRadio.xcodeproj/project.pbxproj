@@ -10,6 +10,10 @@
 		4A131F2E184738250024100D /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F2B184738250024100D /* AudioStreamer.m */; };
 		4A131F2F184738250024100D /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F2D184738250024100D /* UIDevice+Hardware.m */; };
 		4A3527A31846F90C00349A23 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3527A21846F90C00349A23 /* iAd.framework */; };
+		4A7D1CB1184A86BC009669F4 /* ProgramTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7D1CB0184A86BC009669F4 /* ProgramTableCell.m */; };
+		4A7D1CB4184A8775009669F4 /* EpisodeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7D1CB3184A8775009669F4 /* EpisodeViewCell.m */; };
+		4A7D1CB6184A8A71009669F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D1CB5184A8A71009669F4 /* MediaPlayer.framework */; };
+		4A7D1CB8184A8CD3009669F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D1CB7184A8CD3009669F4 /* AVFoundation.framework */; };
 		4A97A0591846925E00CF5C70 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97A0581846925E00CF5C70 /* Foundation.framework */; };
 		4A97A05B1846925E00CF5C70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97A05A1846925E00CF5C70 /* CoreGraphics.framework */; };
 		4A97A05D1846925E00CF5C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97A05C1846925E00CF5C70 /* UIKit.framework */; };
@@ -47,6 +51,12 @@
 		4A131F2C184738250024100D /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
 		4A131F2D184738250024100D /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
 		4A3527A21846F90C00349A23 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		4A7D1CAF184A86BC009669F4 /* ProgramTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTableCell.h; sourceTree = "<group>"; };
+		4A7D1CB0184A86BC009669F4 /* ProgramTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTableCell.m; sourceTree = "<group>"; };
+		4A7D1CB2184A8775009669F4 /* EpisodeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeViewCell.h; sourceTree = "<group>"; };
+		4A7D1CB3184A8775009669F4 /* EpisodeViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeViewCell.m; sourceTree = "<group>"; };
+		4A7D1CB5184A8A71009669F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		4A7D1CB7184A8CD3009669F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4A97A0551846925E00CF5C70 /* memehkUnofficalRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memehkUnofficalRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A97A0581846925E00CF5C70 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A97A05A1846925E00CF5C70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7D1CB8184A8CD3009669F4 /* AVFoundation.framework in Frameworks */,
+				4A7D1CB6184A8A71009669F4 /* MediaPlayer.framework in Frameworks */,
 				4A3527A31846F90C00349A23 /* iAd.framework in Frameworks */,
 				4A97A05B1846925E00CF5C70 /* CoreGraphics.framework in Frameworks */,
 				4A97A05D1846925E00CF5C70 /* UIKit.framework in Frameworks */,
@@ -110,6 +122,10 @@
 				4A97A0681846925E00CF5C70 /* AppDelegate.m */,
 				4A97A06D1846925E00CF5C70 /* ProgramViewController.h */,
 				4A97A06E1846925E00CF5C70 /* ProgramViewController.m */,
+				4A7D1CAF184A86BC009669F4 /* ProgramTableCell.h */,
+				4A7D1CB0184A86BC009669F4 /* ProgramTableCell.m */,
+				4A7D1CB2184A8775009669F4 /* EpisodeViewCell.h */,
+				4A7D1CB3184A8775009669F4 /* EpisodeViewCell.m */,
 				4A97A0701846925E00CF5C70 /* EpisodeViewController.h */,
 				4A97A0711846925E00CF5C70 /* EpisodeViewController.m */,
 			);
@@ -163,6 +179,8 @@
 		4A97A0571846925E00CF5C70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A7D1CB7184A8CD3009669F4 /* AVFoundation.framework */,
+				4A7D1CB5184A8A71009669F4 /* MediaPlayer.framework */,
 				4A3527A21846F90C00349A23 /* iAd.framework */,
 				4A97A0581846925E00CF5C70 /* Foundation.framework */,
 				4A97A05A1846925E00CF5C70 /* CoreGraphics.framework */,
@@ -322,8 +340,10 @@
 				4A131F2F184738250024100D /* UIDevice+Hardware.m in Sources */,
 				4A97A0AB1846A9DB00CF5C70 /* RSSParser.m in Sources */,
 				4A97A0691846925E00CF5C70 /* AppDelegate.m in Sources */,
+				4A7D1CB1184A86BC009669F4 /* ProgramTableCell.m in Sources */,
 				4A97A0AE1846AE9200CF5C70 /* XpathInfo.m in Sources */,
 				4A97A06F1846925E00CF5C70 /* ProgramViewController.m in Sources */,
+				4A7D1CB4184A8775009669F4 /* EpisodeViewCell.m in Sources */,
 				4A97A0B11846D84300CF5C70 /* XmlElement.m in Sources */,
 				4A97A0651846925E00CF5C70 /* main.m in Sources */,
 				4A97A0721846925E00CF5C70 /* EpisodeViewController.m in Sources */,

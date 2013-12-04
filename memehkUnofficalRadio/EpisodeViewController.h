@@ -21,6 +21,10 @@
 
 typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PROG_T;
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MPNowPlayingInfoCenter.h>
+#import <MediaPlayer/MPMediaItem.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVFoundation.h>
 #import "AudioStreamer.h"
 
 @interface EpisodeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
@@ -29,6 +33,8 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
     AudioStreamer *_streamer;
     NSMutableArray *cur_play_episode;
     NSInteger curPlayIndex;
+    NSString *epTitle;
+    NSString *epAuthor;
 }
 
 - (void) setStreamer:(AudioStreamer *) streamer;

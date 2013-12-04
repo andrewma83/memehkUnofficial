@@ -9,6 +9,8 @@
 #import "EpisodeViewController.h"
 #import "RSSParser.h"
 #import "XpathInfo.h"
+#import "EpisodeViewCell.h"
+
 
 @interface EpisodeViewController ()
 @end
@@ -32,6 +34,7 @@
             channelInfo = (NSDictionary *) newDetailItem;
             [self pollURL];
             title = [channelInfo objectForKey:@"Name"];
+            epTitle = title;
             [self setTitle:[channelInfo objectForKey:@"Name"]];
 
             [self setButtonState];
@@ -48,7 +51,22 @@
     } else {
         [_controlButton setTitle:@"Pause" forState:UIControlStateNormal];
     }
+}
 
+- (void) setMediaInfo
+{
+    NSArray *keys;
+    NSArray *values;
+    NSDictionary *mediaInfo;
+    NSMutableArray *channelInfo;
+    NSString *episodeName;
+    
+    channelInfo = episode_list[curPlayIndex];
+    episodeName = channelInfo[PROG_TITLE];
+    keys = [NSArray arrayWithObjects: MPMediaItemPropertyAlbumTitle, MPMediaItemPropertyArtist, nil];
+    values = [NSArray arrayWithObjects:epTitle, episodeName, nil];
+    mediaInfo = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:mediaInfo];
 }
 
 - (void) viewDidDisappear:(BOOL)animated
@@ -127,8 +145,9 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableArray *channelInfo;
-    UITableViewCell *cell;
+    EpisodeViewCell *cell;
     UIFont *myFont;
+    NSString *titleStr;
     
     @try {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Ep_Cell" forIndexPath:indexPath];
@@ -136,7 +155,9 @@
         cell.textLabel.font  = myFont;
         
         channelInfo = episode_list[indexPath.row];
-        cell.textLabel.text = channelInfo[PROG_TITLE];
+        
+        titleStr = [[NSString alloc] initWithFormat:@"%@ -- Part (%@)", channelInfo[PROG_TITLE], channelInfo[PROG_PART]];
+        cell.textLabel.text = titleStr;
         
         if (curPlayIndex == indexPath.row) {
             cell.textLabel.textColor = [UIColor redColor];
@@ -222,6 +243,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSURL *url;
     NSString *urlstr;
     NSMutableArray *channelInfo;
+    NSString *episodeTitle;
     
     @try {
         channelInfo = episode_list[indexPath.row];
@@ -261,6 +283,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 }
                 [_streamer updateURL:url];
                 [_streamer start];
+                episodeTitle = channelInfo[PROG_TITLE];
+                
+                //[self setMediaInfo:eps];
                 curPlayIndex = indexPath.row;
             }
         }

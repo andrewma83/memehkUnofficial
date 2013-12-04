@@ -7,8 +7,8 @@
 //
 
 #import "ProgramViewController.h"
-
 #import "EpisodeViewController.h"
+#import "EpisodeViewCell.h"
 
 @interface ProgramViewController () {
     NSMutableArray *_objects;
@@ -78,7 +78,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *channelInfo;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    EpisodeViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     channelInfo = _objects[indexPath.row];
     cell.textLabel.text = [channelInfo objectForKey:@"Name"];
