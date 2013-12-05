@@ -61,7 +61,7 @@
     NSMutableArray *channelInfo;
     NSString *episodeName;
     
-    channelInfo = episode_list[curPlayIndex];
+    //channelInfo = episode_list[curPlayIndex];
     episodeName = channelInfo[PROG_TITLE];
     keys = [NSArray arrayWithObjects: MPMediaItemPropertyAlbumTitle, MPMediaItemPropertyArtist, nil];
     values = [NSArray arrayWithObjects:epTitle, episodeName, nil];
@@ -131,14 +131,44 @@
 
 #pragma mark - Table View
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title;
+    int episode_no;
+    
+    episode_no = [progDict count] - section;
+    title = [[NSString alloc] initWithFormat:@"第%ld集", (long) episode_no];
+    return title;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [progDict count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [episode_list count];
+    NSMutableArray *tempArray;
+    int realSection;
+    
+    realSection = [progDict count] - section;
+    NSString *key = [[NSString alloc] initWithFormat:@"%ld", (long)realSection];
+    
+    tempArray = [progDict objectForKey:key];
+    return [tempArray count];
+}
+
+- (NSMutableArray *) getRowInSection:(NSIndexPath *) indexPath
+{
+    NSMutableArray *retval;
+    NSString *key;
+    int realSection;
+    
+    realSection = [progDict count] - indexPath.section;
+    key = [[NSString alloc] initWithFormat:@"%ld", (long) realSection];
+    retval = [progDict objectForKey:key];
+    
+    return retval;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -148,18 +178,20 @@
     EpisodeViewCell *cell;
     UIFont *myFont;
     NSString *titleStr;
+    NSMutableArray *tempArray;
     
     @try {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Ep_Cell" forIndexPath:indexPath];
         myFont = [ UIFont fontWithName: @"Arial" size: 12.0 ];
         cell.textLabel.font  = myFont;
         
-        channelInfo = episode_list[indexPath.row];
+        tempArray = [self getRowInSection:indexPath];
+        channelInfo = tempArray[indexPath.row];
         
-        titleStr = [[NSString alloc] initWithFormat:@"%@ -- Part (%@)", channelInfo[PROG_TITLE], channelInfo[PROG_PART]];
+        titleStr = [[NSString alloc] initWithFormat:@"Part (%@): %@", channelInfo[PROG_PART], channelInfo[PROG_TITLE]];
         cell.textLabel.text = titleStr;
         
-        if (curPlayIndex == indexPath.row) {
+        if (curIndex != nil && curIndex.section == indexPath.section && curIndex.row == indexPath.row) {
             cell.textLabel.textColor = [UIColor redColor];
         } else {
             cell.textLabel.textColor = [UIColor blackColor];
@@ -195,6 +227,7 @@
                                completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                    int i;
                                    NSArray *ep_info;
+                                   progDict = [[NSMutableDictionary alloc] init];
                                    RSSParser *parser = [[RSSParser alloc] init:data];
                                    XpathInfo *path_dict = [parser parse];
                                    NSString *tempStr;
@@ -202,12 +235,13 @@
                                    XmlElement *urlElement;
                                    XmlElement *episodeElement;
                                    XmlElement *partElement;
+                                   NSMutableArray *tempArray;
                                    NSMutableArray *titleArray = [path_dict getXpath:XPATH_FOR_TITLE];
                                    NSMutableArray *urlArray = [path_dict getXpath:XPATH_FOR_URL];
                                    NSMutableArray *episodeArray = [path_dict getXpath:XPATH_FOR_EPISODE];
                                    NSMutableArray *partArray = [path_dict getXpath:XPATH_FOR_PART];
                                    
-                                   episode_list = [[NSMutableArray alloc] init];
+                                   //episode_list = [[NSMutableArray alloc] init];
                                    for (i = 0; i < [titleArray count]; i++) {
                                        titleElement = titleArray[i];
                                        urlElement =urlArray[i];
@@ -220,7 +254,15 @@
                                                   episodeElement.value,
                                                   partElement.value,
                                                   nil];
-                                       [episode_list addObject:ep_info];
+                                       //[episode_list addObject:ep_info];
+                                       
+                                       tempArray = [progDict objectForKey:ep_info[PROG_EPISODE]];
+                                       if (tempArray == nil) {
+                                           tempArray = [[NSMutableArray alloc] init];
+                                           [progDict setValue:tempArray forKey:ep_info[PROG_EPISODE]];
+                                       }
+                                       
+                                       [tempArray addObject:ep_info];
                                    }
                                    
                                    @try {
@@ -237,6 +279,21 @@
     }
 }
 
+- (NSMutableArray *) getChannelInfo:(NSIndexPath *) indexPath
+{
+    NSMutableArray *tempArray;
+    NSMutableArray *retval;
+    NSString *key;
+    int realSection;
+    
+    realSection = [progDict count] - indexPath.section;
+    key = [[NSString alloc] initWithFormat:@"%ld", (long) realSection];
+    tempArray = [progDict objectForKey:key];
+    retval = tempArray[indexPath.row];
+                   
+    return retval;
+}
+
 - (void) tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -246,10 +303,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSString *episodeTitle;
     
     @try {
-        channelInfo = episode_list[indexPath.row];
+        channelInfo = [self getChannelInfo:indexPath];
 
         if (cur_play_episode == nil) {
             cur_play_episode = channelInfo;
+            curIndex = indexPath;
             urlstr = channelInfo[PROG_URL];
             url = [[NSURL alloc] initWithString:urlstr];
             if ([_streamer isPlaying]) {
@@ -266,7 +324,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                     [_streamer pause];
                 } else if ([_streamer isPaused]) {
                     [_streamer start];
-                    curPlayIndex = indexPath.row;
+                    //curPlayIndex = indexPath.row;
+                    curIndex = indexPath;
                 } else {
                     [self myRemoveObserver];
                     [_streamer stop];
@@ -286,7 +345,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 episodeTitle = channelInfo[PROG_TITLE];
                 
                 //[self setMediaInfo:eps];
-                curPlayIndex = indexPath.row;
+                //curPlayIndex = indexPath.row;
+                curIndex = indexPath;
             }
         }
         
@@ -308,14 +368,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSURL *url;
     NSString *urlstr;
     NSMutableArray *channelInfo;
+    NSMutableArray *ep_list;
     
     if ([_streamer isFinishing]) {
-        curPlayIndex++;
-        if (curPlayIndex < [episode_list count]) {
+        ep_list = [self getRowInSection:curIndex];
+        curIndex = [NSIndexPath indexPathForRow:curIndex.row + 1 inSection:curIndex.section];
+        if (curIndex.row < [ep_list count]) {
             [self myRemoveObserver];
             [_streamer stop];
             [self myAddObserver];
-            channelInfo = episode_list[curPlayIndex];
+            channelInfo = [self getChannelInfo:curIndex];
             urlstr = channelInfo[PROG_URL];
             url = [[NSURL alloc] initWithString:urlstr];
             [_streamer updateURL:url];

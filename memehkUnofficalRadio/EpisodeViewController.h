@@ -29,12 +29,13 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
 
 @interface EpisodeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    NSMutableArray *episode_list;
     AudioStreamer *_streamer;
     NSMutableArray *cur_play_episode;
     NSInteger curPlayIndex;
     NSString *epTitle;
     NSString *epAuthor;
+    NSMutableDictionary *progDict;
+    NSIndexPath *curIndex;
 }
 
 - (void) setStreamer:(AudioStreamer *) streamer;

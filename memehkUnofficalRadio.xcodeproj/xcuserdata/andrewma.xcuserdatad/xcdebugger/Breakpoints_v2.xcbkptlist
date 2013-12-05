@@ -26,43 +26,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "407877057.451514"
+            timestampString = "407914461.158106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[EpisodeViewController tableView:didSelectRowAtIndexPath:]"
-                  moduleName = "memehkUnofficalRadio"
-                  urlString = "file:///Users/andrewma/iospree/memehkUnofficalRadio/memehkUnofficalRadio/EpisodeViewController.m"
-                  timestampString = "407488671.124868"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[EpisodeViewController tableView:didSelectRowAtIndexPath:]"
-                  moduleName = "memehkUnofficalRadio"
-                  urlString = "file:///Users/andrewma/iospree/memehkUnofficalRadio/memehkUnofficalRadio/EpisodeViewController.m"
-                  timestampString = "407488671.125068"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221"
-                  offsetFromSymbolStart = "549">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "memehkUnofficalRadio/EpisodeViewController.m"
+            timestampString = "407913529.065736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-numberOfSectionsInTableView:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
