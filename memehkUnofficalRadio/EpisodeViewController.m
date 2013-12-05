@@ -241,7 +241,6 @@
                                    NSMutableArray *episodeArray = [path_dict getXpath:XPATH_FOR_EPISODE];
                                    NSMutableArray *partArray = [path_dict getXpath:XPATH_FOR_PART];
                                    
-                                   //episode_list = [[NSMutableArray alloc] init];
                                    for (i = 0; i < [titleArray count]; i++) {
                                        titleElement = titleArray[i];
                                        urlElement =urlArray[i];
@@ -254,7 +253,6 @@
                                                   episodeElement.value,
                                                   partElement.value,
                                                   nil];
-                                       //[episode_list addObject:ep_info];
                                        
                                        tempArray = [progDict objectForKey:ep_info[PROG_EPISODE]];
                                        if (tempArray == nil) {
@@ -345,7 +343,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 episodeTitle = channelInfo[PROG_TITLE];
                 
                 //[self setMediaInfo:eps];
-                //curPlayIndex = indexPath.row;
                 curIndex = indexPath;
             }
         }

@@ -5,10 +5,22 @@
 	<key>channel</key>
 	<array>
 		<dict>
-			<key>Name</key>
-			<string>男人老九</string>
 			<key>ID</key>
-			<integer>6</integer>
+			<integer>10</integer>
+			<key>Name</key>
+			<string>五個一夜情</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<integer>3</integer>
+			<key>Name</key>
+			<string>大把戲</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>博輔林</string>
+			<key>ID</key>
+			<integer>9</integer>
 		</dict>
 		<dict>
 			<key>Name</key>
@@ -24,9 +36,9 @@
 		</dict>
 		<dict>
 			<key>Name</key>
-			<string>大把戲</string>
+			<string>男人老九</string>
 			<key>ID</key>
-			<integer>3</integer>
+			<integer>6</integer>
 		</dict>
 		<dict>
 			<key>Name</key>
