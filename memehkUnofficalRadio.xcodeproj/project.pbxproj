@@ -12,6 +12,9 @@
 		4A17F9AF18525D9500781E2A /* _memebot.py in Resources */ = {isa = PBXBuildFile; fileRef = 4A17F9AD18525D9500781E2A /* _memebot.py */; };
 		4A17F9B018525D9500781E2A /* _memehk.php in Resources */ = {isa = PBXBuildFile; fileRef = 4A17F9AE18525D9500781E2A /* _memehk.php */; };
 		4A2942941851A05800FA466E /* memehk.sql in Resources */ = {isa = PBXBuildFile; fileRef = 4A2942911851A05800FA466E /* memehk.sql */; };
+		4A3442E318528ED80038FF19 /* play-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3442E218528ED80038FF19 /* play-button.png */; };
+		4A3442E518528F360038FF19 /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3442E418528F360038FF19 /* pause-button.png */; };
+		4A3442E71852930D0038FF19 /* question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3442E61852930D0038FF19 /* question_mark.png */; };
 		4A3527A31846F90C00349A23 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3527A21846F90C00349A23 /* iAd.framework */; };
 		4A7D1CB6184A8A71009669F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D1CB5184A8A71009669F4 /* MediaPlayer.framework */; };
 		4A7D1CB8184A8CD3009669F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D1CB7184A8CD3009669F4 /* AVFoundation.framework */; };
@@ -56,6 +59,9 @@
 		4A17F9AD18525D9500781E2A /* _memebot.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = _memebot.py; sourceTree = "<group>"; };
 		4A17F9AE18525D9500781E2A /* _memehk.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = _memehk.php; sourceTree = "<group>"; };
 		4A2942911851A05800FA466E /* memehk.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memehk.sql; sourceTree = "<group>"; };
+		4A3442E218528ED80038FF19 /* play-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button.png"; sourceTree = "<group>"; };
+		4A3442E418528F360038FF19 /* pause-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button.png"; sourceTree = "<group>"; };
+		4A3442E61852930D0038FF19 /* question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_mark.png; sourceTree = "<group>"; };
 		4A3527A21846F90C00349A23 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		4A7D1CB5184A8A71009669F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		4A7D1CB7184A8CD3009669F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -222,6 +228,9 @@
 		4A97A05F1846925E00CF5C70 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A3442E61852930D0038FF19 /* question_mark.png */,
+				4A3442E218528ED80038FF19 /* play-button.png */,
+				4A3442E418528F360038FF19 /* pause-button.png */,
 				4A97A0601846925E00CF5C70 /* memehkUnofficalRadio-Info.plist */,
 				4A97A0611846925E00CF5C70 /* InfoPlist.strings */,
 				4A97A0A21846976D00CF5C70 /* channel.plist */,
@@ -333,11 +342,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A17F9AF18525D9500781E2A /* _memebot.py in Resources */,
+				4A3442E318528ED80038FF19 /* play-button.png in Resources */,
 				4A17F9B018525D9500781E2A /* _memehk.php in Resources */,
 				4A2942941851A05800FA466E /* memehk.sql in Resources */,
 				4A97A0A31846976D00CF5C70 /* channel.plist in Resources */,
 				4A97A0741846925E00CF5C70 /* Images.xcassets in Resources */,
 				4A97A0631846925E00CF5C70 /* InfoPlist.strings in Resources */,
+				4A3442E518528F360038FF19 /* pause-button.png in Resources */,
+				4A3442E71852930D0038FF19 /* question_mark.png in Resources */,
 				4A97A06C1846925E00CF5C70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

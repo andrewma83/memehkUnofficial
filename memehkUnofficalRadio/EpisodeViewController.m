@@ -48,9 +48,11 @@
 - (void) setButtonState
 {
     if ([_streamer isPaused]) {
-        [_controlButton setTitle:@"Play" forState:UIControlStateNormal];
+        //[_controlButton setTitle:@"Play" forState:UIControlStateNormal];
+        [_controlButton setBackgroundImage:playImage forState:UIControlStateNormal];
     } else {
-        [_controlButton setTitle:@"Pause" forState:UIControlStateNormal];
+        //[_controlButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [_controlButton setBackgroundImage:pauseImage forState:UIControlStateNormal];
     }
 }
 
@@ -125,6 +127,8 @@
             [self setButtonState];
         }
         
+        playImage = (playImage == nil) ? [UIImage imageNamed:@"play-button.png"] : playImage;
+        pauseImage = (pauseImage == nil) ? [UIImage imageNamed:@"pause-button.png"] : pauseImage;
         [self myAddObserver];
         curPlayIndex = -1;
     }

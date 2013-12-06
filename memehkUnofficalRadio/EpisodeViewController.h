@@ -36,6 +36,9 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
     NSString *epAuthor;
     NSMutableDictionary *progDict;
     NSIndexPath *curIndex;
+    
+    UIImage *playImage;
+    UIImage *pauseImage;
 }
 
 - (void) setStreamer:(AudioStreamer *) streamer;
