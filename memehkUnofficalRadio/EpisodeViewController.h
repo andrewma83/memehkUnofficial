@@ -43,5 +43,7 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;
 @property (weak, nonatomic) IBOutlet UIButton *controlButton;
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
 - (IBAction) playControl:(id)sender;
+- (IBAction) seek:(id)sender;
 @end

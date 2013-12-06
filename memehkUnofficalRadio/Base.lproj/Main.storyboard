@@ -113,6 +113,13 @@
                                     <action selector="playControl:" destination="Ah7-4n-0Wa" eventType="touchDown" id="7XW-Sr-aU7"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="u5g-d5-XZY">
+                                <rect key="frame" x="163" y="76" width="139" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="seek:" destination="Ah7-4n-0Wa" eventType="touchDragInside" id="pjG-2Q-OIy"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -122,6 +129,7 @@
                     <connections>
                         <outlet property="MyTableView" destination="wvn-x1-hsl" id="tb7-CE-TZk"/>
                         <outlet property="controlButton" destination="Eed-P8-Ufe" id="MXx-Qv-zdM"/>
+                        <outlet property="timeSlider" destination="u5g-d5-XZY" id="2xA-MF-C9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>

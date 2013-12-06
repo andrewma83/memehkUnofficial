@@ -18,6 +18,7 @@
 @implementation EpisodeViewController
 @synthesize MyTableView = _MyTableView;
 @synthesize controlButton = _controlButton;
+@synthesize timeSlider = _timeSlider;
 
 #pragma mark - Managing the detail item
 
@@ -85,6 +86,15 @@
     }
     
     [self setButtonState];
+}
+
+- (IBAction)seek:(id)sender
+{
+    UISlider *slider = (UISlider *) sender;
+    double value = slider.value;
+    double time = value * [_streamer duration];
+    
+    [_streamer seekToTime:time];
 }
 
 - (void)setStreamer:(AudioStreamer *)streamer
@@ -292,6 +302,22 @@
     return retval;
 }
 
+- (void) checkProgress:(id) sender
+{
+    double totalTime = [_streamer duration];
+    double curPlay = [_streamer progress];
+    double percent = (double) curPlay / totalTime;
+    
+    _timeSlider.value = percent;
+}
+
+- (void) duration: (id) sender
+{
+    [self performSelectorOnMainThread:@selector(checkProgress:)
+                           withObject:nil
+                        waitUntilDone:YES];
+}
+
 - (void) tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -322,7 +348,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                     [_streamer pause];
                 } else if ([_streamer isPaused]) {
                     [_streamer start];
-                    //curPlayIndex = indexPath.row;
                     curIndex = indexPath;
                 } else {
                     [self myRemoveObserver];
@@ -342,11 +367,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 [_streamer start];
                 episodeTitle = channelInfo[PROG_TITLE];
                 
-                //[self setMediaInfo:eps];
                 curIndex = indexPath;
             }
         }
         
+
+        [NSTimer scheduledTimerWithTimeInterval:0.5
+                                         target:self
+                                       selector:@selector(duration:)
+                                       userInfo:nil
+                                        repeats:YES];
         [tableView reloadData];
         [self setButtonState];
     } @catch (NSException *exception) {

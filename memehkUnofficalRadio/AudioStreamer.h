@@ -195,6 +195,8 @@ extern NSString * const ASStatusChangedNotification;
 - (double)calculatedBitRate;
 - (void) updateURL:(NSURL *)url;
 - (id) init;
+- (double) progress;
+- (double) duration;
 
 @end
 
