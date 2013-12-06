@@ -5,24 +5,28 @@
 //  Created by Matt Gallagher on 27/09/08.
 //  Copyright 2008 Matt Gallagher. All rights reserved.
 //
-//  Permission is given to use this source code file, free of charge, in any
-//  project, commercial or otherwise, entirely at your risk, with the condition
-//  that any redistribution (in part or whole) of source code must retain
-//  this copyright and permission notice. Attribution in compiled projects is
-//  appreciated but not required.
+//  This software is provided 'as-is', without any express or implied
+//  warranty. In no event will the authors be held liable for any damages
+//  arising from the use of this software. Permission is granted to anyone to
+//  use this software for any purpose, including commercial applications, and to
+//  alter it and redistribute it freely, subject to the following restrictions:
 //
-#define SHOUTCAST_METADATA
+//  1. The origin of this software must not be misrepresented; you must not
+//     claim that you wrote the original software. If you use this software
+//     in a product, an acknowledgment in the product documentation would be
+//     appreciated but is not required.
+//  2. Altered source versions must be plainly marked as such, and must not be
+//     misrepresented as being the original software.
+//  3. This notice may not be removed or altered from any source
+//     distribution.
+//
 
 #if TARGET_OS_IPHONE			
 #import <UIKit/UIKit.h>
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_4_0
-#define kCFCoreFoundationVersionNumber_iPhoneOS_4_0 550.32
-#endif
 #else
 #import <Cocoa/Cocoa.h>
-#endif //TARGET_OS_IPHONE			
+#endif // TARGET_OS_IPHONE
 
-#import <Foundation/Foundation.h>
 #include <pthread.h>
 #include <AudioToolbox/AudioToolbox.h>
 
@@ -80,6 +84,7 @@ typedef enum
 	AS_NO_ERROR = 0,
 	AS_NETWORK_CONNECTION_FAILED,
 	AS_FILE_STREAM_GET_PROPERTY_FAILED,
+	AS_FILE_STREAM_SET_PROPERTY_FAILED,
 	AS_FILE_STREAM_SEEK_FAILED,
 	AS_FILE_STREAM_PARSE_BYTES_FAILED,
 	AS_FILE_STREAM_OPEN_FAILED,
@@ -102,17 +107,9 @@ typedef enum
 } AudioStreamerErrorCode;
 
 extern NSString * const ASStatusChangedNotification;
-extern NSString * const ASPresentAlertWithTitleNotification;
-#ifdef SHOUTCAST_METADATA
-extern NSString * const ASUpdateMetadataNotification;
-#endif
-void ASReadStreamCallBack(CFReadStreamRef, CFStreamEventType, void*);
 
 @interface AudioStreamer : NSObject
 {
-#if TARGET_OS_IPHONE    
-	UIBackgroundTaskIdentifier bgTaskId;
-#endif    
 	NSURL *url;
 
 	//
@@ -135,8 +132,10 @@ void ASReadStreamCallBack(CFReadStreamRef, CFStreamEventType, void*);
 	bool inuse[kNumAQBufs];			// flags to indicate that a buffer is still in use
 	NSInteger buffersUsed;
 	NSDictionary *httpHeaders;
+	NSString *fileExtension;
 	
 	AudioStreamerState state;
+	AudioStreamerState laststate;
 	AudioStreamerStopReason stopReason;
 	AudioStreamerErrorCode errorCode;
 	OSStatus err;
@@ -168,31 +167,19 @@ void ASReadStreamCallBack(CFReadStreamRef, CFStreamEventType, void*);
 								// time)
 	double packetDuration;		// sample rate times frames per packet
 	double lastProgress;		// last calculated progress point
-	UInt32 numberOfChannels;	// Number of audio channels in the stream (1 = mono, 2 = stereo)
-
-#ifdef SHOUTCAST_METADATA
-	BOOL foundIcyStart;
-	BOOL foundIcyEnd;
-	BOOL parsedHeaders;
-	unsigned int metaDataInterval;					// how many data bytes between meta data
-	unsigned int metaDataBytesRemaining;	// how many bytes of metadata remain to be read
-	unsigned int dataBytesRead;							// how many bytes of data have been read
-	NSMutableString *metaDataString;			// the metaDataString
+#if TARGET_OS_IPHONE
+	BOOL pausedByInterruption;
 #endif
-	BOOL vbr; // indicates VBR (or not) stream
 }
 
 @property AudioStreamerErrorCode errorCode;
 @property (readonly) AudioStreamerState state;
-@property (readonly) AudioStreamerStopReason stopReason;
 @property (readonly) double progress;
-@property (readonly) double bufferFillPercentage;
 @property (readonly) double duration;
 @property (readwrite) UInt32 bitRate;
 @property (readonly) NSDictionary *httpHeaders;
-@property (readonly) UInt32 numberOfChannels;
-@property (assign, getter=isMeteringEnabled) BOOL meteringEnabled;
-@property (readonly) BOOL vbr;
+@property (copy,readwrite) NSString *fileExtension;
+@property (nonatomic) BOOL shouldDisplayAlertOnError; // to control whether the alert is displayed in failWithErrorCode
 
 - (id)initWithURL:(NSURL *)aURL;
 - (void)start;
@@ -203,17 +190,11 @@ void ASReadStreamCallBack(CFReadStreamRef, CFStreamEventType, void*);
 - (BOOL)isFinishing;
 - (BOOL)isWaiting;
 - (BOOL)isIdle;
+- (BOOL)isAborted; // return YES if streaming halted due to error (AS_STOPPING + AS_STOPPING_ERROR)
 - (void)seekToTime:(double)newSeekTime;
 - (double)calculatedBitRate;
-- (void) updateURL:(NSURL *)aURL;
+- (void) updateURL:(NSURL *)url;
 - (id) init;
-- (double) progress;
-- (double) duration;
-
-// level metering
-- (float)peakPowerForChannel:(NSUInteger)channelNumber;
-- (float)averagePowerForChannel:(NSUInteger)channelNumber;
-
 
 @end
 
