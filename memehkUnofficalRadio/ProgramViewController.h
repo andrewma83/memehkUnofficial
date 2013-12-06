@@ -13,4 +13,7 @@
 {
     AudioStreamer *_streamer;
 }
+
+- (void) pause;
+- (void) resume;
 @end

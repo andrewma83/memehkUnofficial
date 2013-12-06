@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProgramViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+    ProgramViewController *myRootViewController;
+    BOOL launching;
+}
+- (void) setMyRootViewController:(ProgramViewController *) controller;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

@@ -134,7 +134,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *title;
-    int episode_no;
+    long episode_no;
     
     episode_no = [progDict count] - section;
     title = [[NSString alloc] initWithFormat:@"第%ld集", (long) episode_no];
@@ -149,7 +149,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSMutableArray *tempArray;
-    int realSection;
+    long realSection;
     
     realSection = [progDict count] - section;
     NSString *key = [[NSString alloc] initWithFormat:@"%ld", (long)realSection];
@@ -162,7 +162,7 @@
 {
     NSMutableArray *retval;
     NSString *key;
-    int realSection;
+    long realSection;
     
     realSection = [progDict count] - indexPath.section;
     key = [[NSString alloc] initWithFormat:@"%ld", (long) realSection];
@@ -188,7 +188,7 @@
         tempArray = [self getRowInSection:indexPath];
         channelInfo = tempArray[indexPath.row];
         
-        titleStr = [[NSString alloc] initWithFormat:@"Part (%@): %@", channelInfo[PROG_PART], channelInfo[PROG_TITLE]];
+        titleStr = [[NSString alloc] initWithFormat:@"%@. %@", channelInfo[PROG_PART], channelInfo[PROG_TITLE]];
         cell.textLabel.text = titleStr;
         
         if (curIndex != nil && curIndex.section == indexPath.section && curIndex.row == indexPath.row) {
@@ -282,7 +282,7 @@
     NSMutableArray *tempArray;
     NSMutableArray *retval;
     NSString *key;
-    int realSection;
+    long realSection;
     
     realSection = [progDict count] - indexPath.section;
     key = [[NSString alloc] initWithFormat:@"%ld", (long) realSection];

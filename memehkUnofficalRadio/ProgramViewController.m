@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Andrew Ma. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "ProgramViewController.h"
 #import "EpisodeViewController.h"
 #import "EpisodeViewCell.h"
@@ -16,6 +17,28 @@
 @end
 
 @implementation ProgramViewController
+
+- (void) pause
+{
+    @try {
+        [_streamer pause];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"catch exception: %@", exception);
+    }
+}
+
+- (void) resume
+{
+    @try {
+        if ([_streamer isWaiting]) {
+            [_streamer start];
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"catch exception: %@", exception);
+    }
+}
 
 - (void)awakeFromNib
 {
@@ -28,6 +51,7 @@
     NSDictionary *channelInfoDict;
     NSArray *channelList;
     NSString *filepath;
+    AppDelegate *delegate;
     
     [super viewDidLoad];
     
@@ -42,6 +66,8 @@
         }
         
         _streamer = [[AudioStreamer alloc] init];
+        delegate = [[UIApplication sharedApplication] delegate];
+        [delegate setMyRootViewController:self];
     } @catch (NSException *e) {
         NSLog(@"Catch exception: %@", e);
     }

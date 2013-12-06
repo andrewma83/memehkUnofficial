@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A131F2E184738250024100D /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F2B184738250024100D /* AudioStreamer.m */; };
 		4A131F2F184738250024100D /* UIDevice+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A131F2D184738250024100D /* UIDevice+Hardware.m */; };
+		4A2942941851A05800FA466E /* memehk.sql in Resources */ = {isa = PBXBuildFile; fileRef = 4A2942911851A05800FA466E /* memehk.sql */; };
 		4A3527A31846F90C00349A23 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3527A21846F90C00349A23 /* iAd.framework */; };
 		4A7D1CB1184A86BC009669F4 /* ProgramTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7D1CB0184A86BC009669F4 /* ProgramTableCell.m */; };
 		4A7D1CB4184A8775009669F4 /* EpisodeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7D1CB3184A8775009669F4 /* EpisodeViewCell.m */; };
@@ -50,6 +51,7 @@
 		4A131F2B184738250024100D /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		4A131F2C184738250024100D /* UIDevice+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Hardware.h"; sourceTree = "<group>"; };
 		4A131F2D184738250024100D /* UIDevice+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Hardware.m"; sourceTree = "<group>"; };
+		4A2942911851A05800FA466E /* memehk.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memehk.sql; sourceTree = "<group>"; };
 		4A3527A21846F90C00349A23 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		4A7D1CAF184A86BC009669F4 /* ProgramTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramTableCell.h; sourceTree = "<group>"; };
 		4A7D1CB0184A86BC009669F4 /* ProgramTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramTableCell.m; sourceTree = "<group>"; };
@@ -157,9 +159,18 @@
 			name = "XML Parser";
 			sourceTree = "<group>";
 		};
+		4A29428E18519EF100FA466E /* Backend files */ = {
+			isa = PBXGroup;
+			children = (
+				4A2942911851A05800FA466E /* memehk.sql */,
+			);
+			name = "Backend files";
+			sourceTree = "<group>";
+		};
 		4A97A04C1846925E00CF5C70 = {
 			isa = PBXGroup;
 			children = (
+				4A29428E18519EF100FA466E /* Backend files */,
 				4A97A05E1846925E00CF5C70 /* memehkUnofficalRadio */,
 				4A97A0801846925F00CF5C70 /* memehkUnofficalRadioTests */,
 				4A97A0571846925E00CF5C70 /* Frameworks */,
@@ -315,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2942941851A05800FA466E /* memehk.sql in Resources */,
 				4A97A0A31846976D00CF5C70 /* channel.plist in Resources */,
 				4A97A0741846925E00CF5C70 /* Images.xcassets in Resources */,
 				4A97A0631846925E00CF5C70 /* InfoPlist.strings in Resources */,
