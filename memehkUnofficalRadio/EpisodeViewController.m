@@ -11,6 +11,7 @@
 #import "RSSParser.h"
 #import "XpathInfo.h"
 #import "EpisodeViewCell.h"
+#import <iAd/ADBannerView.h>
 
 
 @interface EpisodeViewController ()
@@ -107,7 +108,7 @@
     [self setProgressTimer:NO];
     
     double value = slider.value;
-    double time = value * [_streamer duration];
+    double time = value * [_streamer duration] / 100;
     [_streamer seekToTime:time];
     
     [self setProgressTimer:YES];
@@ -123,6 +124,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveStreamerNotification:)
                                                  name:ASStatusChangedNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveInterruptNotification:)
+                                                 name:@"ASAudioSessionInterruptionOccuredNotification"
                                                object:nil];
     
 }
@@ -329,7 +335,7 @@
 {
     double totalTime = [_streamer duration];
     double curPlay = [_streamer progress];
-    double percent = (double) curPlay / totalTime;
+    double percent = (double) curPlay / totalTime * 100;
     
     _timeSlider.value = percent;
 }
@@ -423,6 +429,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (void) play_audio
 {
     [_streamer start];
+}
+
+
+- (void) receiveInterruptNotification : (NSNotification *) notification
+{
+    NSLog(@"recieve notification: %@", notification);
 }
 
 - (void) receiveStreamerNotification : (NSNotification *) notification

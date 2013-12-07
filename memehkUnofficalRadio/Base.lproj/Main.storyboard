@@ -75,11 +75,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wvn-x1-hsl">
-                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
+                                <rect key="frame" x="0.0" y="62" width="320" height="458"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Ep_Cell" textLabel="1uP-Zj-NiA" style="IBUITableViewCellStyleDefault" id="N7S-oV-L6r">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Ep_Cell" textLabel="1uP-Zj-NiA" style="IBUITableViewCellStyleDefault" id="N7S-oV-L6r" customClass="EpisodeViewCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N7S-oV-L6r" id="EH1-Lb-WEG">
@@ -113,13 +112,17 @@
                                     <action selector="playControl:" destination="Ah7-4n-0Wa" eventType="touchDown" id="7XW-Sr-aU7"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="u5g-d5-XZY">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="u5g-d5-XZY">
                                 <rect key="frame" x="163" y="76" width="139" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="seek:" destination="Ah7-4n-0Wa" eventType="touchDragInside" id="pjG-2Q-OIy"/>
                                 </connections>
                             </slider>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ric-JA-o9c">
+                                <rect key="frame" x="0.0" y="521" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -128,6 +131,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="MyTableView" destination="wvn-x1-hsl" id="tb7-CE-TZk"/>
+                        <outlet property="adBanner" destination="Ric-JA-o9c" id="Bd3-Lc-d3X"/>
                         <outlet property="controlButton" destination="Eed-P8-Ufe" id="MXx-Qv-zdM"/>
                         <outlet property="timeSlider" destination="u5g-d5-XZY" id="2xA-MF-C9t"/>
                     </connections>

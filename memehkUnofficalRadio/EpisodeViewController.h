@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Andrew Ma. All rights reserved.
 //
 
+#import <iAd/ADBannerView.h>
+
 #define HKREPORTER_URL_STR  @"http://www.hkreporter.com/myradio/channel_podcast.php?channelid=%d"
 #define MEMEHK_URL_STR    @"http://zerotester.dontexist.org/rss/memehk.php?prog_id=%d"
 
@@ -50,6 +52,8 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;
 @property (weak, nonatomic) IBOutlet UIButton *controlButton;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
+@property (weak, nonatomic) IBOutlet ADBannerView *adBanner;
+
 - (IBAction) playControl:(id)sender;
 - (IBAction) seek:(id)sender;
 @end

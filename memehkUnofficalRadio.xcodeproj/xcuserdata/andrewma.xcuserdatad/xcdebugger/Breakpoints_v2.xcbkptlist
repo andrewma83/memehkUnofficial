@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "408143566.247844"
+            timestampString = "408148827.523422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "-tableView:titleForHeaderInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "408143566.247844"
+            timestampString = "408148827.523422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "@implementation EpisodeViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "408143566.247844"
+            timestampString = "408148827.523422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "-duration:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,13 +74,73 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "408143566.247844"
+            timestampString = "408148827.523422"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
+            startingLineNumber = "336"
+            endingLineNumber = "336"
             landmarkName = "-checkProgress:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "memehkUnofficalRadio/AudioStreamer.m"
+            timestampString = "408147166.55908"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1072"
+            endingLineNumber = "1072"
+            landmarkName = "-progress"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AudioStreamer progress]"
+                  moduleName = "memehkUnofficalRadio"
+                  urlString = "file:///Users/andrewma/iospree/memehkUnofficalRadio/memehkUnofficalRadio/AudioStreamer.m"
+                  timestampString = "408147166.575116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1072"
+                  endingLineNumber = "1072"
+                  offsetFromSymbolStart = "74">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AudioStreamer progress]"
+                  moduleName = "memehkUnofficalRadio"
+                  urlString = "file:///Users/andrewma/iospree/memehkUnofficalRadio/memehkUnofficalRadio/AudioStreamer.m"
+                  timestampString = "408147166.57543"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1072"
+                  endingLineNumber = "1072"
+                  offsetFromSymbolStart = "754">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AudioStreamer progress]"
+                  moduleName = "memehkUnofficalRadio"
+                  urlString = "file:///Users/andrewma/iospree/memehkUnofficalRadio/memehkUnofficalRadio/AudioStreamer.m"
+                  timestampString = "408147166.575663"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1072"
+                  endingLineNumber = "1072"
+                  offsetFromSymbolStart = "790">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
