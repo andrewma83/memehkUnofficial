@@ -86,8 +86,11 @@
 
 - (void) viewDidDisappear:(BOOL)animated
 {
+    UIApplication *thisApp;
+    
     [self myRemoveObserver];
     [_streamer stop];
+    thisApp.idleTimerDisabled = NO;
     [super viewDidDisappear:animated];
 }
 
@@ -140,7 +143,9 @@
 
 - (void)viewDidLoad
 {
+    UIApplication *thisApplication;
     [super viewDidLoad];
+    
     @try {
         // Do any additional setup after loading the view, typically from a nib.
         if ([_streamer isPlaying]) {
@@ -152,6 +157,7 @@
         [self myAddObserver];
         curPlayIndex = -1;
         [_controlButton setEnabled:NO];
+        thisApplication.idleTimerDisabled = YES;
     }
     @catch (NSException *exception) {
         NSLog(@"catch exception %@", exception);
