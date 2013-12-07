@@ -396,12 +396,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void) receiveStreamerNotification : (NSNotification *) notification
 {
+#if 0
     NSURL *url;
     NSString *urlstr;
     NSMutableArray *channelInfo;
     NSMutableArray *ep_list;
+#endif
     
     if ([_streamer isFinishing]) {
+#if 0
+        /* Disable autoplay function for the time being */
         ep_list = [self getRowInSection:curIndex];
         curIndex = [NSIndexPath indexPathForRow:curIndex.row + 1 inSection:curIndex.section];
         if (curIndex.row < [ep_list count]) {
@@ -418,6 +422,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                                            userInfo:nil
                                             repeats:NO];
         }
+#endif
     }
     [_MyTableView reloadData];
 }
