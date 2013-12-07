@@ -256,25 +256,29 @@
                                    NSMutableArray *partArray = [path_dict getXpath:XPATH_FOR_PART];
                                    
                                    for (i = 0; i < [titleArray count]; i++) {
-                                       titleElement = titleArray[i];
-                                       urlElement =urlArray[i];
-                                       episodeElement = episodeArray[i];
-                                       partElement = partArray[i];
-                                       
-                                       tempStr = titleElement.value;
-                                       ep_info = [[NSArray alloc] initWithObjects:titleElement.value,
-                                                  urlElement.value,
-                                                  episodeElement.value,
-                                                  partElement.value,
-                                                  nil];
-                                       
-                                       tempArray = [progDict objectForKey:ep_info[PROG_EPISODE]];
-                                       if (tempArray == nil) {
-                                           tempArray = [[NSMutableArray alloc] init];
-                                           [progDict setValue:tempArray forKey:ep_info[PROG_EPISODE]];
+                                       @try {
+                                           titleElement = titleArray[i];
+                                           urlElement =urlArray[i];
+                                           episodeElement = episodeArray[i];
+                                           partElement = partArray[i];
+                                           
+                                           tempStr = titleElement.value;
+                                           ep_info = [[NSArray alloc] initWithObjects:titleElement.value,
+                                                      urlElement.value,
+                                                      episodeElement.value,
+                                                      partElement.value,
+                                                      nil];
+                                           
+                                           tempArray = [progDict objectForKey:ep_info[PROG_EPISODE]];
+                                           if (tempArray == nil) {
+                                               tempArray = [[NSMutableArray alloc] init];
+                                               [progDict setValue:tempArray forKey:ep_info[PROG_EPISODE]];
+                                           }
+                                           
+                                           [tempArray addObject:ep_info];
+                                       } @catch (NSException *exception) {
+                                           NSLog(@"catch %@", exception);
                                        }
-                                       
-                                       [tempArray addObject:ep_info];
                                    }
                                    
                                    @try {
