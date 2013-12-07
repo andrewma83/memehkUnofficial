@@ -37,6 +37,16 @@
 		4A97A0AB1846A9DB00CF5C70 /* RSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97A0AA1846A9DB00CF5C70 /* RSSParser.m */; };
 		4A97A0AE1846AE9200CF5C70 /* XpathInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97A0AD1846AE9200CF5C70 /* XpathInfo.m */; };
 		4A97A0B11846D84300CF5C70 /* XmlElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A97A0B01846D84300CF5C70 /* XmlElement.m */; };
+		4ABBD42D1852B44B005C808D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4251852B44B005C808D /* Icon.png */; };
+		4ABBD42E1852B44B005C808D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4261852B44B005C808D /* Icon-72.png */; };
+		4ABBD42F1852B44B005C808D /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4271852B44B005C808D /* Icon-80.png */; };
+		4ABBD4301852B44B005C808D /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4281852B44B005C808D /* Icon-120.png */; };
+		4ABBD4311852B44B005C808D /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4291852B44B005C808D /* Icon-Small.png */; };
+		4ABBD4321852B44B005C808D /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD42A1852B44B005C808D /* Icon-Small-50.png */; };
+		4ABBD4331852B44B005C808D /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD42B1852B44B005C808D /* Icon-Small@2x.png */; };
+		4ABBD4341852B44B005C808D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD42C1852B44B005C808D /* Icon@2x.png */; };
+		4ABBD4371852B803005C808D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4351852B803005C808D /* Default@2x.png */; };
+		4ABBD4381852B803005C808D /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABBD4361852B803005C808D /* Default~iphone.png */; };
 		4ACC748A1852611F00E50277 /* ProgramTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC74891852611F00E50277 /* ProgramTableCell.m */; };
 		4ACC748D1852614300E50277 /* EpisodeViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACC748C1852614300E50277 /* EpisodeViewCell.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +103,16 @@
 		4A97A0AD1846AE9200CF5C70 /* XpathInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XpathInfo.m; sourceTree = "<group>"; };
 		4A97A0AF1846D84300CF5C70 /* XmlElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlElement.h; sourceTree = "<group>"; };
 		4A97A0B01846D84300CF5C70 /* XmlElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlElement.m; sourceTree = "<group>"; };
+		4ABBD4251852B44B005C808D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = memehkUnofficalRadioTests/Icon.png; sourceTree = "<group>"; };
+		4ABBD4261852B44B005C808D /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "memehkUnofficalRadioTests/Icon-72.png"; sourceTree = "<group>"; };
+		4ABBD4271852B44B005C808D /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-80.png"; path = "memehkUnofficalRadioTests/Icon-80.png"; sourceTree = "<group>"; };
+		4ABBD4281852B44B005C808D /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-120.png"; path = "memehkUnofficalRadioTests/Icon-120.png"; sourceTree = "<group>"; };
+		4ABBD4291852B44B005C808D /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "memehkUnofficalRadioTests/Icon-Small.png"; sourceTree = "<group>"; };
+		4ABBD42A1852B44B005C808D /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "memehkUnofficalRadioTests/Icon-Small-50.png"; sourceTree = "<group>"; };
+		4ABBD42B1852B44B005C808D /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "memehkUnofficalRadioTests/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		4ABBD42C1852B44B005C808D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "memehkUnofficalRadioTests/Icon@2x.png"; sourceTree = "<group>"; };
+		4ABBD4351852B803005C808D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4ABBD4361852B803005C808D /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		4ACC74881852611F00E50277 /* ProgramTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramTableCell.h; path = memehkUnofficalRadio/ProgramTableCell.h; sourceTree = "<group>"; };
 		4ACC74891852611F00E50277 /* ProgramTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramTableCell.m; path = memehkUnofficalRadio/ProgramTableCell.m; sourceTree = "<group>"; };
 		4ACC748B1852614300E50277 /* EpisodeViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EpisodeViewCell.h; path = memehkUnofficalRadio/EpisodeViewCell.h; sourceTree = "<group>"; };
@@ -185,6 +205,7 @@
 				4A29428E18519EF100FA466E /* Backend files */,
 				4A97A05E1846925E00CF5C70 /* memehkUnofficalRadio */,
 				4A97A0801846925F00CF5C70 /* memehkUnofficalRadioTests */,
+				4ABBD4241852B3E6005C808D /* Resources */,
 				4A97A0571846925E00CF5C70 /* Frameworks */,
 				4A97A0561846925E00CF5C70 /* Products */,
 			);
@@ -258,6 +279,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4ABBD4241852B3E6005C808D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4ABBD4351852B803005C808D /* Default@2x.png */,
+				4ABBD4361852B803005C808D /* Default~iphone.png */,
+				4ABBD4251852B44B005C808D /* Icon.png */,
+				4ABBD4261852B44B005C808D /* Icon-72.png */,
+				4ABBD4271852B44B005C808D /* Icon-80.png */,
+				4ABBD4281852B44B005C808D /* Icon-120.png */,
+				4ABBD4291852B44B005C808D /* Icon-Small.png */,
+				4ABBD42A1852B44B005C808D /* Icon-Small-50.png */,
+				4ABBD42B1852B44B005C808D /* Icon-Small@2x.png */,
+				4ABBD42C1852B44B005C808D /* Icon@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,6 +344,7 @@
 				ORGANIZATIONNAME = "Andrew Ma";
 				TargetAttributes = {
 					4A97A0541846925E00CF5C70 = {
+						DevelopmentTeam = 22U2C9PJTT;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -358,7 +397,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ABBD42F1852B44B005C808D /* Icon-80.png in Resources */,
+				4ABBD4341852B44B005C808D /* Icon@2x.png in Resources */,
+				4ABBD4381852B803005C808D /* Default~iphone.png in Resources */,
+				4ABBD4371852B803005C808D /* Default@2x.png in Resources */,
+				4ABBD4321852B44B005C808D /* Icon-Small-50.png in Resources */,
+				4ABBD42D1852B44B005C808D /* Icon.png in Resources */,
+				4ABBD4311852B44B005C808D /* Icon-Small.png in Resources */,
 				4A97A0851846925F00CF5C70 /* InfoPlist.strings in Resources */,
+				4ABBD4331852B44B005C808D /* Icon-Small@2x.png in Resources */,
+				4ABBD4301852B44B005C808D /* Icon-120.png in Resources */,
+				4ABBD42E1852B44B005C808D /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,8 +554,9 @@
 		4A97A08B1846925F00CF5C70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "memehkUnofficalRadio/memehkUnofficalRadio-Prefix.pch";
 				INFOPLIST_FILE = "memehkUnofficalRadio/memehkUnofficalRadio-Info.plist";
@@ -518,8 +568,9 @@
 		4A97A08C1846925F00CF5C70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "memehkUnofficalRadio/memehkUnofficalRadio-Prefix.pch";
 				INFOPLIST_FILE = "memehkUnofficalRadio/memehkUnofficalRadio-Info.plist";
