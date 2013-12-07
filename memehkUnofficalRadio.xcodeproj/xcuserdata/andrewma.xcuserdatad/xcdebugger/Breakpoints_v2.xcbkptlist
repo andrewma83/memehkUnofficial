@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "408064067.514415"
+            timestampString = "408143566.247844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "-tableView:titleForHeaderInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memehkUnofficalRadio/EpisodeViewController.m"
-            timestampString = "408064067.514415"
+            timestampString = "408143566.247844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-numberOfSectionsInTableView:"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "@implementation EpisodeViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "memehkUnofficalRadio/EpisodeViewController.m"
+            timestampString = "408143566.247844"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
+            landmarkName = "-duration:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "memehkUnofficalRadio/EpisodeViewController.m"
+            timestampString = "408143566.247844"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "-checkProgress:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -39,9 +39,12 @@ typedef enum {PROG_TITLE=0, PROG_URL, PROG_EPISODE, PROG_PART, NO_PROG_TYPE} PRO
     
     UIImage *playImage;
     UIImage *pauseImage;
+    NSTimer *progressTimer;
 }
 
 - (void) setStreamer:(AudioStreamer *) streamer;
+- (void) setProgressTimer:(BOOL) enable;
+
 
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UITableView *MyTableView;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Andrew Ma. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "EpisodeViewController.h"
 #import "RSSParser.h"
 #import "XpathInfo.h"
@@ -22,6 +23,14 @@
 
 #pragma mark - Managing the detail item
 
+- (void)hookupDelegate
+{
+    AppDelegate *delegate;
+    
+    delegate = [[UIApplication sharedApplication] delegate];
+    [delegate setMyEpViewController:self];
+}
+
 - (void)setDetailItem:(id)newDetailItem
 {
     NSDictionary *channelInfo;
@@ -37,8 +46,9 @@
             title = [channelInfo objectForKey:@"Name"];
             epTitle = title;
             [self setTitle:[channelInfo objectForKey:@"Name"]];
+            [self hookupDelegate];
 
-            [self setButtonState];
+            //[self setButtonState];
         } @catch (NSException *e) {
             NSLog(@"Caught an exception %@", e);
         }
@@ -47,6 +57,7 @@
 
 - (void) setButtonState
 {
+    [_controlButton setEnabled:YES];
     if ([_streamer isPaused]) {
         //[_controlButton setTitle:@"Play" forState:UIControlStateNormal];
         [_controlButton setBackgroundImage:playImage forState:UIControlStateNormal];
@@ -93,10 +104,13 @@
 - (IBAction)seek:(id)sender
 {
     UISlider *slider = (UISlider *) sender;
+    [self setProgressTimer:NO];
+    
     double value = slider.value;
     double time = value * [_streamer duration];
-    
     [_streamer seekToTime:time];
+    
+    [self setProgressTimer:YES];
 }
 
 - (void)setStreamer:(AudioStreamer *)streamer
@@ -131,6 +145,7 @@
         pauseImage = (pauseImage == nil) ? [UIImage imageNamed:@"pause-button.png"] : pauseImage;
         [self myAddObserver];
         curPlayIndex = -1;
+        [_controlButton setEnabled:NO];
     }
     @catch (NSException *exception) {
         NSLog(@"catch exception %@", exception);
@@ -347,7 +362,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                 [_streamer stop];
                 [self myAddObserver];
             }
-            [_streamer updateURL:url];
+            _streamer = [[AudioStreamer alloc] initWithURL:url];
             [_streamer start];
             curPlayIndex = indexPath.row;
         } else {
@@ -371,7 +386,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
                     [_streamer stop];
                     [self myAddObserver];
                 }
-                [_streamer updateURL:url];
+                _streamer = [[AudioStreamer alloc] initWithURL:url];
                 [_streamer start];
                 episodeTitle = channelInfo[PROG_TITLE];
                 
@@ -379,16 +394,28 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             }
         }
         
-
-        [NSTimer scheduledTimerWithTimeInterval:0.5
-                                         target:self
-                                       selector:@selector(duration:)
-                                       userInfo:nil
-                                        repeats:YES];
+        [self setProgressTimer:YES];
         [tableView reloadData];
         [self setButtonState];
     } @catch (NSException *exception) {
         NSLog(@"%@", exception);
+    }
+}
+
+- (void) setProgressTimer:(BOOL) enable
+{
+    if (enable) {
+        if (progressTimer != nil) {
+            [progressTimer invalidate];
+        }
+        progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                         target:self
+                                                       selector:@selector(duration:)
+                                                       userInfo:nil
+                                                        repeats:YES];
+        
+    } else {
+        [progressTimer invalidate];
     }
 }
 
@@ -408,6 +435,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 #endif
     
     if ([_streamer isFinishing]) {
+        [self setProgressTimer:NO];
 #if 0
         /* Disable autoplay function for the time being */
         ep_list = [self getRowInSection:curIndex];

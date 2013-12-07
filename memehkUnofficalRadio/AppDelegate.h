@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "ProgramViewController.h"
+#import "EpisodeViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     ProgramViewController *myRootViewController;
+    EpisodeViewController *myEpViewController;
     BOOL launching;
 }
 - (void) setMyRootViewController:(ProgramViewController *) controller;
+- (void) setMyEpViewController:(EpisodeViewController *) controller;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

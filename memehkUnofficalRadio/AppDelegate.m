@@ -34,6 +34,11 @@
     }
 }
 
+- (void) setMyEpViewController:(EpisodeViewController *)controller
+{
+    myEpViewController = controller;
+}
+
 - (void) setMyRootViewController:(ProgramViewController *)controller
 {
     myRootViewController = controller;
@@ -54,6 +59,7 @@
     // Disable the audio resume for the time being
     [self audio:YES];
 #endif
+    [myEpViewController setProgressTimer:NO];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -75,7 +81,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-
+    [myEpViewController setProgressTimer:YES];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
